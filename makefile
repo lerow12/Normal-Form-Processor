@@ -1,2 +1,5 @@
-all:
-    g++ FileParser.cpp -o fileparser
+build: FileParser.cpp
+	$(CXX) $(CXXFLAGS) $? -o $@
+
+clean:
+	rm build
