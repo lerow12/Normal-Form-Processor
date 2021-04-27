@@ -158,9 +158,10 @@ bool Table::Check3rdForm() {
                     }
                 }
                 if (entireKey) {
-                    continue;
+                    break;
                 }
             }
+            if(entireKey) continue;
 
             return false;
         }
