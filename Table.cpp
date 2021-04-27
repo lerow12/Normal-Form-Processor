@@ -27,14 +27,19 @@ Table::Table (string columnNames, string primaryKey, vector<string>* candidateKe
     this-> dependencies = dependencies;
 
     MakePrimes();
+    cout << columnNames << " " << primaryKey << " ";
+    for (int i = 0; i < candidateKeys->size(); i++) {
+        cout << candidateKeys->at(i) << " ";
+    }
+    cout << endl;
     if (Check2ndForm()) {
         if (Check3rdForm()) {
-            cout << "Table is in 3rd Normal Form" << endl;
+            cout << "3 NF" << endl;
         } else {
-            cout << "Table is in 2nd Normal Form" << endl;
+            cout << "2 NF" << endl;
         }
     } else {
-        cout << "Table is in 1st Normal Form" << endl;
+        cout << "1 NF" << endl;
     }
 }
 
