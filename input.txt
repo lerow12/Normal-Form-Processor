@@ -1,0 +1,144 @@
+JKL J
+(J)(K)
+(J)(L)
+x
+JKL J
+(J)(K)
+(K)(L)
+x
+JKLM LM
+(LM)(J)
+(M)(K)
+x
+JKLM LM
+(LM)(J)
+(LM)(K)
+x
+WVXZY VW
+(WV)(Z)
+(WV)(X)
+(Z)(Y)
+x
+ABCDF A BD
+(A)(B)
+(A)(F)
+(A)(D)
+(BD)(A)
+(B)(C)
+(BD)(F)
+x
+ABCDF DB A
+(A)(B)
+(A)(F)
+(A)(D)
+(BD)(A)
+(B)(C)
+(BD)(F)
+x
+ABCDF A BD
+(A)(B)
+(A)(D)
+(C)(F)
+(A)(C)
+(BD)(C)
+(BD)(F)
+x
+ABCDF A BD
+(A)(B)
+(A)(D)
+(C)(F)
+(A)(C)
+(BD)(A)
+(BD)(F)
+(B)(C)
+x
+ABCDF A BD
+(A)(B)
+(B)(C)
+(A)(D)
+(C)(F)
+(A)(C)
+(BD)(A)
+(BD)(F)
+(BD)(C)
+x
+MNOP MN
+(MN)(O)
+(O)(N)
+(P)(M)
+(MN)(P)
+x
+ABCEF B C E F
+(B)(A)
+(B)(C)
+(B)(E)
+(C)(A)
+(C)(B)
+(C)(F)
+(E)(A)
+(E)(B)
+(E)(C)
+(F)(A)
+(F)(B)
+x
+ABCE B C E
+(B)(A)
+(B)(E)
+(B)(C)
+(C)(B)
+(A)(C)
+(E)(A)
+(E)(B)
+(E)(C)
+x
+ABCDEF A
+(A)(B)
+(A)(C)
+(B)(D)
+(B)(F)
+(F)(E)
+x
+ABCDE A CD
+(A)(B)
+(BA)(E)
+(DC)(A)
+(DC)(B)
+(DC)(E)
+x
+TSRQ Q
+(S)(Q)
+(Q)(R)
+(Q)(S)
+(Q)(T)
+(T)(Q)
+x
+VWXYZ VX YZ
+(VX)(Y)
+(VX)(Z)
+(V)(W)
+(ZY)(V)
+(ZY)(W)
+(YZ)(X)
+x
+MNOPQ MN OP
+(MNQ)(P)
+(OP)(M)
+(OP)(N)
+(OP)(Q)
+(MN)(O)
+x
+ABCD A CD
+(A)(B)
+(CD)(A)
+(A)(C)
+(A)(D)
+(CD)(B)
+(C)(A)
+x
+VWXY VX Y
+(V)(Y)
+(VX)(W)
+(Y)(V)
+(Y)(W)
+(Y)(X)
+x

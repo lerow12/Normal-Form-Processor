@@ -3,16 +3,8 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include "Table.cpp"
 using namespace std;
-
-// Class Table {
-
-//     int a;
-// };
-
-// Table::Table () {
-
-// }
 
 //Obtains all tables from input file and store them into instances of Table class
 class FileParser {
@@ -21,12 +13,14 @@ class FileParser {
     bool logEnable;               //Enables or disables logging
     string columnNames;           //Temporary column names for current table
     string primaryKey;            //Temporary primary key for current table
-    vector<string> candidateKeys; //Temporary candidate keys for current table
-    vector<string> dependencies;  /*Temorary dependencies for current table
+    vector<string>* candidateKeys; //Temporary candidate keys for current table
+    vector<string>* dependencies;  /*Temorary dependencies for current table
                                     Note: Pairs of indecies represent the dependency [2n]->[2n+1]*/
+    vector<Table*>* tables;
     public:
         FileParser(string, bool);
         void run();
+        void Tables();
     private:
         void GetColumnsAndKeys();
         void GetDependencies();
@@ -42,6 +36,9 @@ FileParser::FileParser(string fileName, bool logEnable) {
     //Open input file
     this->logFile << "Opening " + fileName + "..." << endl; 
     this->inputFile.open(fileName, ios::in);
+
+    //Initialize vectors
+    this->tables = new vector<Table*>;
 }
 
 //Run the file parser
@@ -49,8 +46,11 @@ void FileParser::run() {
     //Read and instantiate each table from the file until a blank like or end of file
     while (this->inputFile.peek() != '\n' && this->inputFile.peek() != EOF) {
         if (logEnable) logFile << endl << "Making new Table..." << endl;
+        this->candidateKeys = new vector<string>;
+        this->dependencies = new vector<string>;
         GetColumnsAndKeys();
         GetDependencies();
+        MakeTable();
     }
 }
 
@@ -75,7 +75,7 @@ void FileParser::GetColumnsAndKeys() {
     //Store all remaining strings as candidate keys
     if (logEnable) logFile << "Candidate Keys: ";
     while (str_strm >> candidateKey) {        
-        candidateKeys.push_back(candidateKey);
+        candidateKeys->push_back(candidateKey);
         if (logEnable) logFile << candidateKey + " ";
     }
     if (logEnable) logFile << endl; 
@@ -99,7 +99,7 @@ void FileParser::GetDependencies() {
             tempLoc = nextLine.find(')');             //Find location of )
             depen = nextLine.substr(0, tempLoc);      //Create a substring of everythin in between ()
             nextLine.erase(0, tempLoc + 1);           //Erase everything up to the next (
-            dependencies.push_back(depen);            //Add string to the list of dependencies
+            dependencies->push_back(depen);            //Add string to the list of dependencies
             if (logEnable) logFile << depen + " ";
         }
         if (logEnable) logFile << endl;
@@ -110,7 +110,8 @@ void FileParser::GetDependencies() {
 }
 
 void FileParser::MakeTable() {
-
+    Table* newTable = new Table(columnNames, primaryKey, candidateKeys, dependencies);
+    tables->push_back(newTable);
 }
 
 //Driver Code
